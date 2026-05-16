@@ -24,11 +24,10 @@
 
 html { scroll-behavior: smooth; }
 
-
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 20px; 
   line-height: 1.65;
   color: var(--ink);
   background: var(--bg);
@@ -83,7 +82,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .site-nav a {
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   letter-spacing: 0.03em;
   color: var(--ink-muted);
   position: relative;
@@ -125,7 +124,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero p {
-  font-size: 30px;
+  font-size: 32px; /* was 30px */
   font-weight: 300;
   color: var(--ink-muted);
   max-width: 520px;
@@ -156,7 +155,6 @@ a { text-decoration: none; color: inherit; }
   pointer-events:none;
 }
 
-
 .cta {
   display: inline-flex;
   align-items: center;
@@ -165,7 +163,7 @@ a { text-decoration: none; color: inherit; }
   color: #fff;
   padding: 13px 26px;
   border-radius: var(--radius-sm);
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   font-weight: 500;
   letter-spacing: 0.02em;
   box-shadow: 0 4px 16px rgba(184,44,44,0.30);
@@ -249,7 +247,7 @@ a { text-decoration: none; color: inherit; }
 
 .project-card p {
   color: var(--ink-muted);
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   line-height: 1.65;
   margin: 0 0 auto;
 }
@@ -257,7 +255,7 @@ a { text-decoration: none; color: inherit; }
 .card-link {
   margin-top: 22px;
   font-weight: 500;
-  font-size: 13.5px;
+  font-size: 16px; /* was 13.5px */
   letter-spacing: 0.02em;
   color: var(--accent);
   display: inline-flex;
@@ -294,7 +292,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px; /* was 11px */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -353,7 +351,7 @@ a { text-decoration: none; color: inherit; }
 
 .principle p {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   color: var(--ink-muted);
   line-height: 1.65;
 }
@@ -373,7 +371,7 @@ a { text-decoration: none; color: inherit; }
   padding: 40px 60px;
   background: #111110;
   color: #6b6b66;
-  font-size: 13px;
+  font-size: 12px; /* was 13px */
   letter-spacing: 0.03em;
 }
 
