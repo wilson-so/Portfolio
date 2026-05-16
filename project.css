@@ -15,7 +15,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 12px; /* was 13px */
   font-weight: 500;
   color: var(--ink-muted);
   letter-spacing: 0.02em;
@@ -30,7 +30,7 @@
 
 .project-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px; /* was 11px */
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -43,7 +43,7 @@
 
 .project-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(36px, 6vw, 62px);
+  font-size: clamp(36px, 6vw, 64px); /* was 62px → 64px */
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: 0.02em;
@@ -78,7 +78,7 @@
 }
 
 .meta-label {
-  font-size: 11px;
+  font-size: 12px; /* was 11px */
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -86,7 +86,7 @@
 }
 
 .meta-value {
-  font-size: 14px;
+  font-size: 16px; /* was 14px */
   color: var(--ink);
 }
 
@@ -114,7 +114,7 @@
 
 .case-study h2 {
   font-family: var(--font-display);
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(24px, 3vw, 32px); /* was 22px → 24px */
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -140,7 +140,7 @@
 /* ===== Subsection Title (h3) ===== */
 .subsection-title {
   font-family: var(--font-display);
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: clamp(20px, 2.5vw, 24px); /* was 18px → 20px */
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -173,7 +173,7 @@
 
 .callout p {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px; /* was 15px */
   font-weight: 400;
   color: var(--ink);
   line-height: 1.7;
@@ -200,7 +200,7 @@
 }
 
 .image-caption {
-  font-size: 12.5px;
+  font-size: 12px; /* was 12.5px */
   color: var(--ink-faint);
   text-align: center;
   margin-top: -20px;
@@ -217,15 +217,15 @@
 
 .image-grid .case-image {
   margin: 0;
-  min-height: 200px;}
+  min-height: 200px;
+}
 
-  .image-grid .case-image img {
+.image-grid .case-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
 
 /* ===== User Flow Image ===== */
 .userflow-wrap {
@@ -263,6 +263,7 @@
   gap: 24px;
   margin: 32px 0;
 }
+
 .before-after-col .case-image {
   margin: 0;
   min-height: 0;
@@ -270,6 +271,7 @@
   border: none;
   overflow: visible;
 }
+
 .before-after-col .case-image img {
   width: 100%;
   height: auto;
@@ -285,11 +287,11 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin: 20px 0 12px;   
+  margin: 20px 0 12px;
 }
 
 .before-label { color: var(--accent); }
-.after-label { color: #118a0a; }
+.after-label  { color: #118a0a; }
 
 /* Before list — bullet points */
 .before-list {
@@ -305,7 +307,7 @@
   line-height: 1.8;
 }
 
-/* After list — numbered SVG annotations */
+/* After list — icon annotations */
 .ba-list {
   padding-left: 0;
   margin: 0;
@@ -328,7 +330,7 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  margin-top: 5px;        
+  margin-top: 5px;
 }
 
 /* ===== Outcomes ===== */
@@ -349,7 +351,7 @@
 
 .outcome-number {
   font-family: var(--font-display);
-  font-size: 32px;          /* was 42px — smaller for word-based stats */
+  font-size: 32px;
   font-weight: 800;
   color: var(--accent);
   letter-spacing: 0.02em;
@@ -357,7 +359,7 @@
 }
 
 .outcome-label {
-  font-size: 13px;
+  font-size: 12px; /* was 13px */
   color: var(--ink-muted);
   margin-top: 6px;
   line-height: 1.4;
@@ -385,7 +387,7 @@
 .project-nav a:hover { opacity: 0.7; }
 
 .nav-direction {
-  font-size: 11px;
+  font-size: 12px; /* was 11px */
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -394,7 +396,7 @@
 
 .nav-title {
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 20px; /* was 18px */
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
