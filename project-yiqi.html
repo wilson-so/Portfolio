@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yiqi's Tech Logo Redesign | Wilson So</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <style>
+    .slides-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 60px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .slide-canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .slides-loading {
+      text-align: center;
+      padding: 80px 20px;
+      font-size: 14px;
+      color: #9e9e98;
+    }
+
+    .back-bar {
+      padding: 20px 60px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .back-bar a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b6b66;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .back-bar a:hover { color: #1a1a18; }
+
+    @media (max-width: 768px) {
+      .slides-wrap { padding: 24px 16px 60px; gap: 8px; }
+      .back-bar { padding: 16px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.svg" alt="Wilson So"></a>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="back-bar">
+      <a href="index.html#work">← Back to Work</a>
+    </div>
+
+    <div class="slides-wrap">
+      <div class="slides-loading" id="loading">Loading slides…</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Wilson So</p>
+    <a href="https://www.linkedin.com/in/wilsonso88/" target="_blank" aria-label="LinkedIn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    </a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const wrap = document.querySelector('.slides-wrap');
+    const loading = document.getElementById('loading');
+
+    pdfjsLib.getDocument('yiqi-logo.pdf').promise.then(pdf => {
+      loading.remove();
+      const renders = [];
+      for (let i = 1; i <= pdf.numPages; i++) {
+        renders.push(renderPage(pdf, i));
+      }
+      return Promise.all(renders);
+    }).catch(err => {
+      loading.textContent = 'Could not load PDF. Make sure yiqi-logo.pdf is in the same folder.';
+      console.error(err);
+    });
+
+    async function renderPage(pdf, pageNum) {
+      const page = await pdf.getPage(pageNum);
+      const scale = window.devicePixelRatio >= 2 ? 2.5 : 2;
+      const viewport = page.getViewport({ scale });
+
+      const canvas = document.createElement('canvas');
+      canvas.className = 'slide-canvas';
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      canvas.style.width = '100%';
+      canvas.style.height = 'auto';
+
+      wrap.appendChild(canvas);
+
+      await page.render({
+        canvasContext: canvas.getContext('2d'),
+        viewport
+      }).promise;
+    }
+  </script>
+
+</body>
+</html>
